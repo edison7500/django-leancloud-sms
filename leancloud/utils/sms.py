@@ -3,19 +3,10 @@ __author__ = 'apple'
 import requests
 import json
 
-# Epub360 应用
-# HEADERS = {
-#     "X-AVOSCloud-Application-Id": "og3ehvmg9u190wpqt7jvm1wrxo91fsfwsxrkn5pr6qx0vkpj",
-#     "X-AVOSCloud-Application-Key": "spaptgnd5ji2zeyceqxj8wi1p39wpurijjzygbr9ym0a9to9",
-#     "Content-Type": "application/json"
-# }
+from django.conf import settings
 
-# 手机验证应用
-HEADERS = {
-    "X-LC-Id": "K7XwGopwRnNj7QbumCVWzzoP-gzGzoHsz",
-    "X-LC-Key": "gRbi4TIFk10Q1vJj2SyKqWT3",
-    "Content-Type": "application/json"
-}
+
+headers = getattr(settings, 'LEANCLOUD_HEADERS')
 
 
 def send_sms(phonenumber, name='Epub360'):
@@ -28,7 +19,7 @@ def send_sms(phonenumber, name='Epub360'):
         _data['name'] = name
     url = 'https://leancloud.cn/1.1/requestSmsCode'
     try:
-        r = requests.post(url, json=_data, headers=HEADERS)
+        r = requests.post(url, json=_data, headers=headers)
         result = r.text
         result = json.loads(result)
     except Exception, e:
@@ -49,7 +40,7 @@ def verify_phone(phone_number, verify_code):
         return False, u'请输入正确的手机号'
     url = 'https://leancloud.cn/1.1/verifySmsCode/%s?mobilePhoneNumber=%s' % (verify_code, phone_number)
     try:
-        r = requests.post(url, headers=HEADERS)
+        r = requests.post(url, headers=headers)
         result = r.text
         result = json.loads(result)
     except Exception, e:

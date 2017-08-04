@@ -10,7 +10,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='django-leancloud-sms',
+    name='Django LeanCloud SMS',
     version=leancloud.__version__,
     packages=find_packages(),
     include_package_data=True,
@@ -29,6 +29,9 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    ],
+    install_requires = [
+        'requests>2.1',
     ],
     test_suite = 'tests',
     zip_safe = False
