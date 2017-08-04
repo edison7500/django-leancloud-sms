@@ -20,17 +20,10 @@ INSTALLED_APPS = (
 )
 
 # lean cloud config
-# LEANCLOUD_HEADERS = {
-#     "X-LC-Id": "<replace your x-lc-id>",
-#     "X-LC-Key": "<replace your x-lc-key>",
-#     "Content-Type": "application/json"
-# }
-
-
 LEANCLOUD_HEADERS = {
-    "X-LC-Id": "K7XwGopwRnNj7QbumCVWzzoP-gzGzoHsz",
-    "X-LC-Key": "gRbi4TIFk10Q1vJj2SyKqWT3",
+    "X-LC-Id": "<replace your x-lc-id>",
+    "X-LC-Key": "<replace your x-lc-key>",
     "Content-Type": "application/json"
 }
 
-LEANCLOUD_SMS_NAME = "Epub360"
+LEANCLOUD_SMS_NAME = "jiaxin"
