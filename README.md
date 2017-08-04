@@ -1,1 +1,1 @@
-# django-leancloud-sms
+# Django Leancloud SMS
