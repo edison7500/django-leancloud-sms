@@ -1,6 +1,4 @@
-
 from django.test import TestCase
-
 from leancloud.sms import LeanCloudSMS
 
 
