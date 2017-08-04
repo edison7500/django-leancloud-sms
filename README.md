@@ -24,14 +24,31 @@ LEANCLOUD_HEADERS = {
 LEANCLOUD_SMS_NAME = "<replace your name>"
 
 ```
-2. 
+2. 在 Django View 中使用
 ```python
+'''
+DJANGO Views.py
+'''
+from django.http import JsonResponse
 from leancloud.sms import LeanCloudSMS
 
-sms = LeanCloudSMS()
 
-sms.send_sms('13000000001') # 发送验证码
+def send_sms_view(request):
+    phone_num = request.GET.get('num')
+    sms = LeanCloudSMS()
+    data, msg = sms.send_sms(phone_number=phone_num) # 发送验证码
+    return JsonResponse(status=200, data={
+                                        'status':data,
+                                        'msg':msg
+                                    })
 
-sms.verify_phone_code('13000000001', verify_code='xxxx') # 验证手机验证码
-
+def verify_phone_code(request):
+    phone_num = request.GET.get('num')
+    v_code = request.GET.get('vcode')
+    sms = LeanCloudSMS()
+    data, msg = sms.verify_phone_code(phone_number=phone_num, verify_code=v_code) # 验证手机验证码
+    return JsonResponse(status=200, data={
+                                        'status':data,
+                                        'msg':msg
+                                    })
 ```
