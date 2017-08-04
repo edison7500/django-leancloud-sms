@@ -9,6 +9,22 @@ from django.conf import settings
 headers = getattr(settings, 'LEANCLOUD_HEADERS')
 
 
+class LeanCloudSMS(object):
+    def __init__(self, name):
+        self.name = name
+        self.headers = getattr(settings, 'LEANCLOUD_HEADERS', None)
+        assert self.headers is not  None
+
+    def _check_phone_num(self):
+        pass
+
+    def send_sms(self, phone_number):
+        pass
+
+    def verify_phone(self, phone_number, verify_code):
+        pass
+
+
 def send_sms(phonenumber, name='Epub360'):
     flag, msg = verify_number(phonenumber)
     if not flag:
