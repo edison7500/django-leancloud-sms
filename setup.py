@@ -9,8 +9,13 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+install_requires = [
+                    'Django >= 1.8',
+                    'requests >= 2.1',
+                   ],
+
 setup(
-    name='Django LeanCloud SMS',
+    name='django-leancloud-sms',
     version=leancloud.__version__,
     packages=find_packages(),
     include_package_data=True,
@@ -30,9 +35,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    install_requires = [
-        'requests>2.1',
-    ],
+    install_requires=install_requires,
     test_suite = 'tests',
     zip_safe = False
 )
