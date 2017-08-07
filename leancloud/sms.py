@@ -41,14 +41,12 @@ class LeanCloudSMS(object):
         })
         res = requests.post(self.url, json=payload, headers=headers)
         if res.status_code == 200:
-            data = res.json()
-            if data:
-                return False, data.get('error')
-            else:
-                return True, 'success'
-            # logging.info(data)
+            # data = res.json()
+            return True, 'success'
         else:
-            raise LeanCloudException("request leancloud {code} error".format(code=res.status_code))
+            msg = res.json()['error']
+            raise LeanCloudException("Error: code {code} message:{msg} ".format(code=res.status_code,
+                                                                        msg=msg))
 
     def verify_phone_code(self, phone_number, verify_code):
         if not self._check_phone_num(phone_number):
@@ -60,12 +58,9 @@ class LeanCloudSMS(object):
         )
         res = requests.post(_verify_url, headers=headers)
         if res.status_code == 200:
-            data = res.json()
-            if data:
-                return False, data.get('error')
-            else:
-                return True, 'success'
-
+            return True, 'success'
         else:
-            raise LeanCloudException("request leancloud {code} error".format(code=res.status_code))
+            msg = res.json()['error']
+            raise LeanCloudException("Error: code {code} message:{msg} ".format(code=res.status_code,
+                                                                        msg=msg))
 
