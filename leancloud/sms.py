@@ -45,7 +45,7 @@ class LeanCloudSMS(object):
             return True, 'success'
         else:
             msg = res.json()['error']
-            raise LeanCloudException("Error: code {code} message:{msg} ".format(code=res.status_code,
+            raise LeanCloudException(u"Error: code {code} message:{msg} ".format(code=res.status_code,
                                                                         msg=msg))
 
     def verify_phone_code(self, phone_number, verify_code):
@@ -61,6 +61,6 @@ class LeanCloudSMS(object):
             return True, 'success'
         else:
             msg = res.json()['error']
-            raise LeanCloudException("Error: code {code} message:{msg} ".format(code=res.status_code,
+            raise LeanCloudException(u"Error: code {code} message:{msg} ".format(code=res.status_code,
                                                                         msg=msg))
 
