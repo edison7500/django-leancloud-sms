@@ -24,6 +24,8 @@ setup(
     long_description=README,
     author='jiaxin',
     author_email='edison7500@gmail.com',
+    url='https://github.com/edison7500/django-leancloud-sms',
+    download_url='https://github.com/edison7500/django-leancloud-sms/archive/v0.2-alpha.tar.gz',
     classifiers = [
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -36,6 +38,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=install_requires,
-    test_suite = 'tests',
+    test_suite = 'testapp',
     zip_safe = False
 )
