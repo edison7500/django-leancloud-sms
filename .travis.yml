@@ -3,9 +3,10 @@ sudo: false
 
 matrix:
   include:
+    - python: "3.6"
+      env: TOX_ENV=py36-django18
     - python: "2.7"
       env: TOX_ENV=py27-django18
-
     - python: "2.7"
       env: TOX_ENV=py27-django111
 
