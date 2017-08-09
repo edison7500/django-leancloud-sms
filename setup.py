@@ -39,5 +39,5 @@ setup(
     ],
     install_requires=install_requires,
     test_suite = 'testapp',
-    zip_safe = False
+    zip_safe = False,
 )
