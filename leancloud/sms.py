@@ -18,8 +18,11 @@ class LeanCloudSMS(object):
     # verify_url = 'https://leancloud.cn/1.1/verifySmsCode/%s?mobilePhoneNumber=%s' % (verify_code, phone_number)
     verify_url = 'https://leancloud.cn/1.1/verifySmsCode/'
 
-    def __init__(self):
-        self.name = getattr(settings, 'LEANCLOUD_SMS_NAME', None)
+    def __init__(self, name=None):
+        if name is None:
+            self.name = getattr(settings, 'LEANCLOUD_SMS_NAME', None)
+        else:
+            self.name = name
         self.headers = getattr(settings, 'LEANCLOUD_HEADERS', None)
 
         assert self.name is not None
