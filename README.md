@@ -1,5 +1,5 @@
 # Django Leancloud SMS
-
+[![Build Status](https://travis-ci.org/edison7500/django-leancloud-sms.svg?branch=master)](https://travis-ci.org/edison7500/django-leancloud-sms)
 
 ## 安装
 ```bash
