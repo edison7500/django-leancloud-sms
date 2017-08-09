@@ -64,6 +64,5 @@ class LeanCloudSMS(object):
             return True, 'success'
         else:
             msg = res.json()['error']
-            raise LeanCloudException(u"Error: code {code} message:{msg} ".format(code=res.status_code,
-                                                                        msg=msg))
+            raise LeanCloudException(u"{msg}".format(msg=msg))
 
