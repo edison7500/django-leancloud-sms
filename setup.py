@@ -2,8 +2,8 @@ import os
 from setuptools import find_packages, setup
 import leancloud
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-    README = readme.read()
+# with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+#     README = readme.read()
 
 
 # allow setup.py to be run from any path
@@ -21,7 +21,7 @@ setup(
     include_package_data=True,
     license='BSD License',
     description='A simple Django app use leancloud sms api',
-    long_description=README,
+    # long_description=README,
     author='jiaxin',
     author_email='edison7500@gmail.com',
     url='https://github.com/edison7500/django-leancloud-sms',
